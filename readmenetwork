@@ -1,0 +1,305 @@
+**PROCEDURE**
+
+-   To check python version **python3 \--version** (install it, will
+    take hardly 30 minutes to install it )
+
+-   Go to google and install python latest version
+
+-   Take the link from Network Security Channel GitHub **(
+    https://github.ibm.com/neteng-governance/network_vuln_reports )**
+
+-   Open src folder
+
+-   We have to run 3 scripts
+    [build_vuln_report.py](https://github.ibm.com/neteng-governance/network_vuln_reports/blob/main/src/build_vuln_report.py)
+    ( 3 )
+
+[jira_vuln_collector.py](https://github.ibm.com/neteng-governance/network_vuln_reports/blob/main/src/jira_vuln_collector.py)
+(1 )
+
+[sos_get_latest_inventory.py](https://github.ibm.com/neteng-governance/network_vuln_reports/blob/main/src/sos_get_latest_inventory.py)
+( 2 )
+
+NOTE: (3) - Combining jira and sos we will get the output in this script
+
+\(1\) - jira vol like critical high
+
+\(2\) - It will take the ip's
+
+**[jira_vuln_collector.py](https://github.ibm.com/neteng-governance/network_vuln_reports/blob/main/src/jira_vuln_collector.py)**
+
+-   \- Again check the version of python is installed or not **python3
+    \--version**
+
+\- First we should install the dependency's for that we have to create
+the virtual environment, for that the name is **env**
+
+-   **python3 -m venv env**
+
+\- To enter into that particular env we should activate it
+
+-   **source env/bin/activate**
+
+-   press **ls**
+
+**-** To copy the full code
+
+-   **Vi jira-vuln-collector.py**
+
+-   Press **I**
+
+-   Paste the **code** again press **esc :wq** to save it
+
+\- It should be in executable mode, for that
+
+-   **Chmod +x jira-vuln-collector.py**
+
+\- to run this command we should first install pip
+
+-   **pip3 install \--upgrade pip**
+
+-   We have to install the Modules: jira, getpass, datetime, urllib2, re
+
+**pip3 install jira**
+
+**pip3 install getpass4**
+
+**pip3 install datetime**
+
+**pip3 install urllib3**
+
+\- Module will be already installed with python and it will come
+automatically
+
+\- To save the output file directory
+
+-   **mkdir reference-files** press **ls**
+
+\- Run the code
+
+-   **Python3 jira-vuln-collector.py**
+
+Username - vchowdary
+
+Password - XXXXXXX
+
+\- Once code running is finished, run the below command
+
+-   **cd reference-files**
+
+-   press **ls** then we can see the output file as
+    jira_vuln_results.csv
+
+-   To come out of that Reference folder in terminal type **cd ..**
+
+[**sos_get_latest_inventory.py**](https://github.ibm.com/neteng-governance/network_vuln_reports/blob/main/src/sos_get_latest_inventory.py)
+
+-   We need one token to run this SOS inventory, for that open the link
+    given in Requirements:
+
+SOS API Token :
+
+[https://w3.sos.ibm.com/inventory.nsf/testTracker.xsp?c_code=softlayer_network]{.ul}
+
+-   Press the **down arrow** mark under vm Roja Chowdary
+
+-   Press **user profile**
+
+-   On top we can see **Access Token**
+
+Press **Generate Token** ( WuMcRT7M4wJiin76uuRD6AOPUuQ8RRwO ) keep it in
+any text pad or note pad
+
+-   To check all the dependencies there are not
+
+Modules: json, time, request, subprocess, os, sys, getpass
+
+-   We are already in env mode so,
+
+**pip3 install json ( error came )** so try doing all the modules (
+time, request, subprocess, os )If required it will ask for the modules
+while running the code
+
+-   Copy the full code
+
+-   Press **I**
+
+-   Paste the **code** again press **esc :wq** to save it
+
+-   It should be in executable mode, for that
+
+-   **Chmod +x sos_get_latest_inventory.py**
+
+\- Run the code
+
+-   **Python3 sos_get_latest_inventory.py**
+
+**NOTE :** Give IBM mail ID
+
+SOS User Name : **V.M.Roja.Chowdary**
+
+SOS API Token : WuMcRT7M4wJiin76uuRD6AOPUuQ8RRwO
+
+\- Totally there will be 72 pages from SOS
+
+**[[build_vuln_report.py](https://github.ibm.com/neteng-governance/network_vuln_reports/blob/main/src/build_vuln_report.py)]{.ul}**
+
+-   First import the deco, because all the modules already present
+
+**pip3 install deco**
+
+-   Open the **reference- file** in **src** folder,
+
+-   Go to terminal
+
+**cd reference-files** and press **ls,**
+
+-   There you can only see 2 files**,**
+
+jira_vuln_results.csv
+
+[network_sos_inventory.json]{.ul}
+
+-   We need to install both the files which is present in reference
+    files
+
+[network_plugin_baseline_march_2022.json](https://github.ibm.com/neteng-governance/network_vuln_reports/blob/main/src/reference-files/network_plugin_baseline_march_2022.json)
+( 1 )
+
+[[network_plugin_list.csv](https://github.ibm.com/neteng-governance/network_vuln_reports/blob/main/src/reference-files/network_plugin_list.csv)
+( 2 )]{.ul}
+
+-   Open the folder - raw - copy the code
+
+-   **Vi** **network_plugin_baseline_march_2022.json**
+
+-   Press **I**
+
+-   Paste the **code** again press **esc :wq** to save it
+
+-   Open the folder - raw - copy the code
+
+-   **Vi** **network_plugin_list.csv**
+
+-   Press **I**
+
+-   Paste the **code** again press **esc :wq** to save it
+
+-   Now again press **ls**
+
+-   And now you can only see all the 4 files,
+
+jira_vuln_results.csv
+
+network_sos_inventory.json
+
+network_plugin_baseline_march_2022.json
+
+network_plugin_list.csv
+
+\- We should first come out of the reference - files and then run the
+code
+
+-   **cd ..**
+
+\- To create a result file
+
+-   **mkdir result-files**
+
+\- run the code
+
+-   **(env) rojachowdary\@Vs-MacBook-Pro \~ % Python3
+    build_vuln_reports.py**
+
+**NOTE:**
+
+**To view all the reports -\> Applications -\> right click on top of
+that Application name -\> V's MacBook Pro -\> Macintosh HD -\> Users -\>
+Roja Chowdary -\> result-files**
+
+**Git Uploading**
+
+\- where you got the output just create a new folder and rename it and
+copy all the 5 files to that folder ( Vuln_Rr)
+
+-   **cd Vuln_Rr**
+
+**-** each and every time we have to clone it with that new folder
+
+-   **git clone
+    git\@github.ibm.com:neteng-governance/network_vuln_reports.git**
+
+```{=html}
+<!-- -->
+```
+-   **ls**
+
+-   **cd network_vuln_reports**
+
+-   **ls**
+
+-   **cd reports**
+
+-   **ls**
+
+-   **mkdir 08-08-2022**
+
+-   **cd 08-08-2022**
+
+-   **pwd**
+
+**New tab**
+
+-   **cd Vuln_Rr**
+
+```{=html}
+<!-- -->
+```
+-   **ls**( check all the below files are present or not)
+
+network_new_plugins_08-08-2022.csv
+
+network_vuln_duplicate_list_08-08-2022.csv
+
+network_vuln_report_08-08-2022.csv
+
+network_vuln_report_host_not_found_08-08-2022.csv
+
+network_vuln_report_slide_data_08-08-2022.csv
+
+network_vuln_reports
+
+-   **cp \*.csv
+    /Users/rojachowdary/Vuln_Rr/network_vuln_reports/reports/08-08-2022**
+
+**Previous tab**
+
+-   **ls**
+
+```{=html}
+<!-- -->
+```
+-   **git status**
+
+\- you have to come out from date ( 08-08-2022 and reports )
+
+-   **cd ..**
+
+-   **cd ..**
+
+\- rojachowdary\@Vs-MacBook-Pro network_vuln_reports %( it should be in
+this name before doing git status)
+
+-   rojachowdary\@Vs-MacBook-Pro network_vuln_reports %**git status**
+
+**- reports/08-08-2022/** ( you will see this after giving git status
+and should add the folders given that )
+
+-   **git add reports/08-08-2022/** ( above red we will add here)
+
+```{=html}
+<!-- -->
+```
+-   **git commit -m \"vroja\"**
+
+-   **git push**
